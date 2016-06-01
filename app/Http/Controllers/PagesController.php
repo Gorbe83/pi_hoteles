@@ -12,4 +12,16 @@ class PagesController extends Controller
         return view ('home');
     }
 
+    public function signUp() {
+        return view ('signup');
+    }
+
+    public function resultadosHoteles() {
+        return view ('resultadosHoteles');
+    }
+
+    public function hotel() {
+        return view ('hotel');
+    }
+
 }

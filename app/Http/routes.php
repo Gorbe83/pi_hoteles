@@ -12,3 +12,6 @@
 */
 
 Route::get('/', 'PagesController@home');
+Route::get('/signup', 'PagesController@signUp');
+Route::get('/resultadosHoteles', 'PagesController@resultadosHoteles');
+Route::get('/hotel', 'PagesController@hotel');
