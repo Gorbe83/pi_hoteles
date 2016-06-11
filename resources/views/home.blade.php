@@ -43,7 +43,7 @@
 			<div class="col-md-8 banner-right">
 				<div class="sap_tabs">
 					<div class="booking-info about-booking-info">
-						<h2>Book Domestic & International Hotels</h2>
+						<h2>Reservar Hoteles</h2>
 					</div>
 					<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
 						  <!---->
@@ -60,7 +60,7 @@
 											<!-- Set here the key for your domain in order to hide the watermark on the web server -->
 
 											<div class="online_reservation">
-												<form action="/resultadosHoteles" method="GET">
+												<form action="/busqueda" method="GET">
 													<div class="b_room">
 														<div class="booking_room">
 															<div class="reservation">
@@ -77,14 +77,14 @@
 															<div class="reservation">
 																<ul>
 																	 <li  class="span1_of_1">
-																		 <h5>Check in</h5>
+																		 <h5>Llegada</h5>
 																		 <div class="book_date">
 																			<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
 																			<input type="date" name="fechaLlegada" value="Selecciona fecha" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Select date';}" required>
 																		 </div>
 																	 </li>
 																	 <li  class="span1_of_1 left">
-																		 <h5>Check out</h5>
+																		 <h5>Salida</h5>
 																		 <div class="book_date">
 																			<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
 																			<input type="date" name="fechaIda" value="Select date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Select date';}" required>
@@ -109,6 +109,7 @@
 																		 <!----------start section_room----------->
 																		 <div class="section_room">
 																			  <select id="ninos" name="ninos" onchange="change_ninos(this.value)" class="frm-field required">
+																				  	<option value="0">0</option>
 																					<option value="1">1</option>
 																					<option value="2">2</option>
 																					<option value="3">3</option>
@@ -144,7 +145,7 @@
 																<ul>
 																	 <li class="span1_of_3">
 																		<div class="date_btn">
-																			<input class="btn btn-primary" type="submit" value="Search" />
+																			<input class="btn btn-primary" type="submit" value="Buscar" />
 																		</div>
 																	 </li>
 																	 <div class="clearfix"></div>

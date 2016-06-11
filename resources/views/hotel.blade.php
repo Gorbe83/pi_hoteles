@@ -11,8 +11,9 @@
 				<div class="single-page">
 						<div class="col-md-8 single-gd-lt">
 							<div class="single-pg-hdr">
-								<h2>Morbi mollis mattis dolor</h2>
-								<p>Eiusmod Tempor inc , St Dolore Place,Kingsport 56777</p>
+								<h2>{!! $hotel->nombre !!}</h2>
+								<p>{!! $hotel->direccion !!}</p>
+								<p>Tel. {!! $hotel->telefono !!}</p>
 								<p>Jump to: <a href="#">Over View</a>|<a href="#">Room Choices</a>|<a href="#">Hotel Information</a></p>
 							</div>
 							<div class="flexslider">
@@ -136,159 +137,61 @@
 				<!--//single-page-->
 			</div>
 			<div class="c-rooms">
-				<div class="p-table">
-					<div class="p-table-grids">
-						<div class="col-md-3 p-table-grid">
-							<div class="p-table-grad-heading">
-								<h6>Room type</h6>
-							</div>
-							<div class="p-table-grid-info">
-								<a href="#"><img src="/images/p2.jpg" alt=""></a>
-								<div class="room-basic-info">
-									<a href="#">Fusce vestibulum ultricies rutrum</a>
-									<h6>1 king bed or  2 single beds</h6>
-									<p>Vestibulum ullamcorper(condimentum luctus)</p>
+				@if ($habitaciones->isEmpty())
+					<p>No se encontraron habitaciones con estos par&aacute;metros de b&uacute;squeda</p>
+				@else
+					@foreach ($habitaciones as $habitacion)
+						<div class="p-table">
+							<div class="p-table-grids">
+								<div class="col-md-3 p-table-grid">
+									<div class="p-table-grad-heading">
+										<h6>Tipo de cuarto</h6>
+									</div>
+									<div class="p-table-grid-info">
+										<a href="#"><img src="/images/p2.jpg" alt=""></a>
+										<div class="room-basic-info">
+											<h5>{!! $habitacion->nombre !!}</h5>
+											<h6>1 king bed or  2 single beds</h6>
+											<p>Vestibulum ullamcorper(condimentum luctus)</p>
+										</div>
+									</div>
 								</div>
-							</div>
-						</div>
-						<div class="col-md-3 p-table-grid">
-							<div class="p-table-grad-heading">
-								<h6>Options</h6>
-							</div>
-							<div class="rate-features">
-								<ul>
-									<li>Morbi mollis mattis</li>
-									<li>Donec egestas</li>
-									<li>Donec non risus</li>
-									<li>Pellentesque sem</li>
-									<li>Sed ut urna id metus</li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-md-3 p-table-grid">
-							<div class="p-table-grad-heading">
-								<h6>Avg rate per night</h6>
-							</div>
-							<div class="avg-rate">
-								<h5>Recommended for you</h5>
-								<p>Price is now:</p>
-								<span class="p-offer">$140</span>
-								<span class="p-last-price">$230</span>
-							</div>
-						</div>
-						<div class="col-md-3 p-table-grid">
-							<div class="p-table-grad-heading">
-								<h6>Book</h6>
-							</div>
-							<div class="book-button-column">
-								<a href="#">Book</a>
-							</div>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-				</div>
-				<div class="p-table">
-					<div class="p-table-grids">
-						<div class="col-md-3 p-table-grid">
-							<div class="p-table-grad-heading">
-								<h6>Room type</h6>
-							</div>
-							<div class="p-table-grid-info">
-								<a href="#"><img src="/images/p1.jpg" alt=""></a>
-								<div class="room-basic-info">
-									<a href="#">Fusce vestibulum ultricies rutrum</a>
-									<h6>1 king bed or  2 single beds</h6>
-									<p>Vestibulum ullamcorper(condimentum luctus)</p>
+								<div class="col-md-3 p-table-grid">
+									<div class="p-table-grad-heading">
+										<h6>Opciones</h6>
+									</div>
+									<div class="rate-features">
+										<ul>
+											<li>Morbi mollis mattis</li>
+											<li>Donec egestas</li>
+											<li>Donec non risus</li>
+											<li>Pellentesque sem</li>
+											<li>Sed ut urna id metus</li>
+										</ul>
+									</div>
 								</div>
-							</div>
-						</div>
-						<div class="col-md-3 p-table-grid">
-							<div class="p-table-grad-heading">
-								<h6>Options</h6>
-							</div>
-							<div class="rate-features">
-								<ul>
-									<li>Morbi mollis mattis</li>
-									<li>Donec egestas</li>
-									<li>Donec non risus</li>
-									<li>Pellentesque sem</li>
-									<li>Sed ut urna id metus</li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-md-3 p-table-grid">
-							<div class="p-table-grad-heading">
-								<h6>Avg rate per night</h6>
-							</div>
-							<div class="avg-rate">
-								<h5>Recommended for you</h5>
-								<p>Price is now:</p>
-								<span class="p-offer">$140</span>
-								<span class="p-last-price">$230</span>
-							</div>
-						</div>
-						<div class="col-md-3 p-table-grid">
-							<div class="p-table-grad-heading">
-								<h6>Book</h6>
-							</div>
-							<div class="book-button-column">
-								<a href="#">Book</a>
-							</div>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-				</div>
-				<div class="p-table">
-					<div class="p-table-grids">
-						<div class="col-md-3 p-table-grid">
-							<div class="p-table-grad-heading">
-								<h6>Room type</h6>
-							</div>
-							<div class="p-table-grid-info">
-								<a href="#"><img src="/images/p2.jpg" alt=""></a>
-								<div class="room-basic-info">
-									<a href="#">Fusce vestibulum ultricies rutrum</a>
-									<h6>1 king bed or  2 single beds</h6>
-									<p>Vestibulum ullamcorper(condimentum luctus)</p>
+								<div class="col-md-3 p-table-grid">
+									<div class="p-table-grad-heading">
+										<h6>Precio por noche</h6>
+									</div>
+									<div class="avg-rate">
+										<h5>El precio actual es: </h5>
+										<span class="p-offer">${!! $habitacion->precioDia !!}</span>
+									</div>
 								</div>
+								<div class="col-md-3 p-table-grid">
+									<div class="p-table-grad-heading">
+										<h6></h6>
+									</div>
+									<div class="book-button-column">
+										<a href="/habitacion/reservacion/{!! $habitacion->idHabitacion !!}">Reserva</a>
+									</div>
+								</div>
+								<div class="clearfix"> </div>
 							</div>
 						</div>
-						<div class="col-md-3 p-table-grid">
-							<div class="p-table-grad-heading">
-								<h6>Options</h6>
-							</div>
-							<div class="rate-features">
-								<ul>
-									<li>Morbi mollis mattis</li>
-									<li>Donec egestas</li>
-									<li>Donec non risus</li>
-									<li>Pellentesque sem</li>
-									<li>Sed ut urna id metus</li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-md-3 p-table-grid">
-							<div class="p-table-grad-heading">
-								<h6>Avg rate per night</h6>
-							</div>
-							<div class="avg-rate">
-								<h5>Recommended for you</h5>
-								<p>Price is now:</p>
-								<span class="p-offer">$140</span>
-								<span class="p-last-price">$230</span>
-							</div>
-						</div>
-						<div class="col-md-3 p-table-grid">
-							<div class="p-table-grad-heading">
-								<h6>Book</h6>
-							</div>
-							<div class="book-button-column">
-								<a href="#">Book</a>
-							</div>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-				</div>
+					@endforeach
+				@endif
 			</div>
 		</div>
 		<!-- //container -->

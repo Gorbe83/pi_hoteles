@@ -48,7 +48,7 @@
                                                 <a href="#">Connect with Google</a>
                                             </div>
                                             <div class="button-bottom">
-                                                <p>New account? <a href="/signup">Signup</a></p>
+                                                <p>New account? <a href="/usuario/registro">Signup</a></p>
                                             </div>
                                         </div>
                                     </div>
