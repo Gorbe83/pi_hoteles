@@ -9,27 +9,34 @@
 			<div class="faqs-top-grids">
 				<div class="book-grids">
 					<div class="col-md-6 book-left">
-						<div class="book-left-info">
-							<h3>Crea una nueva cuenta</h3>
-						</div>
-						<div class="book-left-form">
-							<form>
+						<form method="post">
+							<div class="book-left-info">
+								<h3>Crea una nueva cuenta</h3>
+							</div>
+							<div class="book-left-form">
+
+								@foreach ($errors->all() as $error)
+								   <p class="alert">{{ $error }}</p>
+							   	@endforeach
+
+								{!! csrf_field() !!}
+
 								<p>Nombre</p>
-								<input type="text" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
+								<input type="text" name="nombre" value="{{ old('nombre') }}">
 								<p>Apellidos</p>
-								<input type="text" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
+								<input type="text" name="apellidos" value="{{ old('apellidos') }}">
 								<p>Tel&eacute;fono</p>
-								<input type="text" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
+								<input type="text" name="telefono" value="{{ old('telefono') }}">
 								<p>Correo electr&oacute;nico</p>
-								<input type="text" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
+								<input type="text" name="email" value="{{ old('email') }}">
 								<p>Contrase&ntilde;a</p>
 								<input type="password" name="password" id="password">
 								<p>Confirmar contrase&ntilde;a</p>
-								<input type="password" name="password" id="password">
+								<input type="password" name="password_confirmation" id="confirm_password">
 								<label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label>
 								<input type="submit" id="login" value="Register">
-							</form>
-						</div>
+							</div>
+						</form>
 					</div>
 					<div class="col-md-6 book-left book-right">
 						<div class="book-left-info">

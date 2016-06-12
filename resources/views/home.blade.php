@@ -60,7 +60,7 @@
 											<!-- Set here the key for your domain in order to hide the watermark on the web server -->
 
 											<div class="online_reservation">
-												<form action="/busqueda" method="GET">
+												<form action="/hotel/busqueda" method="GET">
 													<div class="b_room">
 														<div class="booking_room">
 															<div class="reservation">

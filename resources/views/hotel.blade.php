@@ -12,82 +12,41 @@
 						<div class="col-md-8 single-gd-lt">
 							<div class="single-pg-hdr">
 								<h2>{!! $hotel->nombre !!}</h2>
-								<p>{!! $hotel->direccion !!}</p>
-								<p>Tel. {!! $hotel->telefono !!}</p>
-								<p>Jump to: <a href="#">Over View</a>|<a href="#">Room Choices</a>|<a href="#">Hotel Information</a></p>
+								@for ($i = 0; $i < $hotel->estrellas; $i++)
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								@endfor
+								<p>{!! $hotel->ciudad !!} | Tel. {!! $hotel->telefono !!}</p>
+								<p>Ir a: <a href="#galeria">Galería</a>|<a href="#habitaciones">Habitaciones</a>|<a href="#">Informaci&oacute;n del Hotel</a></p>
+							<div id="galeria" class="flexslider" style="padding:0px 10px;">
+								<ul class="slides">
+									<li>
+										<div class="slider-info">
+											<img src="/images/p1.jpg" alt=""/>
+										</div>
+									</li>
+									<li>
+										<div class="slider-info">
+											<img src="/images/p2.jpg" alt=""/>
+										</div>
+									</li>
+									<li>
+										<div class="slider-info">
+											<img src="/images/p3.jpg" alt=""/>
+										</div>
+									</li>
+									<li>
+										<div class="slider-info">
+											<img src="/images/p4.jpg" alt=""/>
+										</div>
+									</li>
+								</ul>
 							</div>
-							<div class="flexslider">
-											<ul class="slides">
-												<li data-thumb="/images/p1.jpg">
-													<img src="/images/p1.jpg" alt=""/>
-												</li>
-												<li data-thumb="/images/p2.jpg">
-													<img src="/images/p2.jpg" alt=""/>
-												</li>
-												<li data-thumb="/images/p3.jpg">
-													<img src="/images/p3.jpg" alt=""/>
-												</li>
-												<li data-thumb="/images/p4.jpg">
-													<img src="/images/p4.jpg" alt=""/>
-												</li>
-												<li data-thumb="/images/p1.jpg">
-													<img src="/images/p1.jpg" alt=""/>
-												</li>
-												<li data-thumb="/images/p2.jpg">
-													<img src="/images/p2.jpg" alt=""/>
-												</li>
-												<li data-thumb="/images/p3.jpg">
-													<img src="/images/p3.jpg" alt=""/>
-												</li>
-												<li data-thumb="/images/p4.jpg">
-													<img src="/images/p4.jpg" alt=""/>
-												</li>
-												<li data-thumb="/images/p1.jpg">
-													<img src="/images/p1.jpg" alt=""/>
-												</li>
-												<li data-thumb="/images/p2.jpg">
-													<img src="/images/p2.jpg" alt=""/>
-												</li>
-												<li data-thumb="/images/p3.jpg">
-													<img src="/images/p3.jpg" alt=""/>
-												</li>
-												<li data-thumb="/images/p4.jpg">
-													<img src="/images/p4.jpg" alt=""/>
-												</li>
-												<li data-thumb="/images/p1.jpg">
-													<img src="/images/p1.jpg" alt=""/>
-												</li>
-												<li data-thumb="/images/p2.jpg">
-													<img src="/images/p2.jpg" alt=""/>
-												</li>
-												<li data-thumb="/images/p3.jpg">
-													<img src="/images/p3.jpg" alt=""/>
-												</li>
-												<li data-thumb="/images/p4.jpg">
-													<img src="/images/p4.jpg" alt=""/>
-												</li>
-												<li data-thumb="/images/p1.jpg">
-													<img src="/images/p1.jpg" alt=""/>
-												</li>
-												<li data-thumb="/images/p2.jpg">
-													<img src="/images/p2.jpg" alt=""/>
-												</li>
-												<li data-thumb="/images/p3.jpg">
-													<img src="/images/p3.jpg" alt=""/>
-												</li>
-											</ul>
+								<p>jaofijaiofjaoiejfioaofaiofaeoijeoiejiofjeaiofjeaoijfeaoijfaoijfaeoijfeioajfaoeijafoiaejifaejoif
+								eajiofjaeofeanfeaiofoiajfaoia fao faoi jfaoeij foaei foia faoei fauo foa nfaoi faoif aoifaoi feaoijf aoif aiof jaiofj
+								aiofaoi fjea oif aoifa oi fneaiu fiuea feau faeoi nfiean foia feao faoii fao feao afeoij f</p>
 							</div>
-										<!-- FlexSlider -->
-									<script defer src="/js/jquery.flexslider.js"></script>
-										<script>
-										// Can also be used with $(document).ready()
-										$(window).load(function() {
-										  $('.flexslider').flexslider({
-											animation: "slide",
-											controlNav: "thumbnails"
-										  });
-										});
-										</script>
+						</div>
+						<div class="col-md-4 single-gd-rt">
 
 						</div>
 						<div class="col-md-4 single-gd-rt">
@@ -96,47 +55,30 @@
 									<a href="#">
 										<span class="glyphicon glyphicon-tag" aria-hidden="true"></span>
 									</a>
-									<p>Special Offer</p>
+									<p>Mejor oferta</p>
 									<script>
 										$(document).ready(function(){
 										$('[data-toggle="tooltip"]').tooltip();
 										});
 									</script>
 								</div>
-								<div class="sp-bor-btn text-right">
-									<h4><span>$8,750</span> $4,850</h4>
-									<p class="best-pri">Best price</p>
-									<a class="best-btn" href="booking.html">Book Now</a>
+								<div class="sp-bor-btn">
+									<h4 style="text-align: center;">MXN $4,850</h4>
+									<p class="best-pri" style="text-align: center;">Precio por noche</p>
+									<div style="text-align: center;">
+										<a class="best-btn" href="#habitaciones">Ver habitaciones</a>
+									</div>
 								</div>
 							</div>
 							<div class="map-gd">
-								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63718.72916803739!2d102.31975295000002!3d3.489618449999993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31ceba2007355f81%3A0xd2ff1ad6a3ca801!2sMentakab%2C+Pahang%2C+Malaysia!5e0!3m2!1sen!2sin!4v1439535856431"></iframe>
-							</div>
-							<div class="other-comments">
-								<div class="comments-head">
-									<h3>Excellent</h3>
-									<p>4.5/5</p>
-									<div class="clearfix"></div>
-								</div>
-								<div class="comments-bot">
-									<p>"Vestibulum ullamcorper condimentum luctus. Ut ullamcorper elit eu auctor commodo."</p>
-									<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span> John Doe</h4>
-								</div>
-								<div class="comments-bot">
-									<p>"Aliquam non purus quis tellus varius egestas ut vitae tellus. Pellentesque non est ac tortor maximus imperdiet at id quam."</p>
-									<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span> Luther</h4>
-								</div>
-								<div class="comments-bot">
-									<p>"Vestibulum sapien quam, interdum quis bibendum quis, malesuada a nisi. Proin at blandit justo."</p>
-									<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span> Patrick</h4>
-								</div>
+								<iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBvqUJlFKK-APySgavAsCJuE2snjw0Hr50&q={!! $hotel->ciudad !!},{!! $hotel->nombre !!}"></iframe>
 							</div>
 						</div>
 						<div class="clearfix"></div>
 				</div>
 				<!--//single-page-->
 			</div>
-			<div class="c-rooms">
+			<div class="c-rooms" id="habitaciones">
 				@if ($habitaciones->isEmpty())
 					<p>No se encontraron habitaciones con estos par&aacute;metros de b&uacute;squeda</p>
 				@else
@@ -156,6 +98,14 @@
 										</div>
 									</div>
 								</div>
+								<div class="col-md-2 p-table-grid">
+									<div class="p-table-grad-heading">
+										<h6>R&eacute;gimen de comida</h6>
+									</div>
+									<div class="rate-features">
+
+									</div>
+								</div>
 								<div class="col-md-3 p-table-grid">
 									<div class="p-table-grad-heading">
 										<h6>Opciones</h6>
@@ -170,7 +120,7 @@
 										</ul>
 									</div>
 								</div>
-								<div class="col-md-3 p-table-grid">
+								<div class="col-md-2 p-table-grid">
 									<div class="p-table-grad-heading">
 										<h6>Precio por noche</h6>
 									</div>
@@ -179,12 +129,12 @@
 										<span class="p-offer">${!! $habitacion->precioDia !!}</span>
 									</div>
 								</div>
-								<div class="col-md-3 p-table-grid">
+								<div class="col-md-2 p-table-grid">
 									<div class="p-table-grad-heading">
-										<h6></h6>
+										<h6><br></h6>
 									</div>
 									<div class="book-button-column">
-										<a href="/habitacion/reservacion/{!! $habitacion->idHabitacion !!}">Reserva</a>
+										<button type="button" class="btn btn-primary btn-lg" href="/habitacion/reservacion/{!! $habitacion->idHabitacion !!}">Reservar</button>
 									</div>
 								</div>
 								<div class="clearfix"> </div>

@@ -19,18 +19,25 @@
         </div>
         <div class="nav-top">
             <div class="dropdown-grids">
-                    <div id="loginContainer"><a href="#" id="loginButton"><span>Login</span></a>
+                <div id="loginContainer">
+                @if (Auth::check())
+                    <a href="/usuario/logout"><span>Logout</span></a>
+                @else
+                    <a href="#" id="loginButton"><span>Login</span></a>
                         <div id="loginBox">
-                            <form id="loginForm">
+                            <form id="loginForm" method="post" action="/usuario/login">
+
+                                {!! csrf_field() !!}
+                                
                                 <div class="login-grids">
                                     <div class="login-grid-left">
                                         <fieldset id="body">
                                             <fieldset>
-                                                <label for="email">Email Address</label>
+                                                <label for="email">Correo electr&oacute;nico</label>
                                                 <input type="text" name="email" id="email">
                                             </fieldset>
                                             <fieldset>
-                                                <label for="password">Password</label>
+                                                <label for="password">Contrase&ntilde;a</label>
                                                 <input type="password" name="password" id="password">
                                             </fieldset>
                                             <input type="submit" id="login" value="Sign in">
@@ -55,7 +62,8 @@
                                 </div>
                             </form>
                         </div>
-                    </div>
+                @endif
+                </div>
             </div>
             <div class="clearfix"> </div>
         </div>

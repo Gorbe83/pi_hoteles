@@ -12,6 +12,9 @@
 */
 
 Route::get('/', 'PagesController@home');
-Route::get('/usuario/registro', 'UsersController@registro');
-Route::get('/busqueda', 'HotelsController@busqueda');
+Route::get('/hotel/busqueda', 'HotelsController@busqueda');
 Route::get('/hotel/{id}', 'HotelsController@hotel');
+Route::get('usuario/registro', 'Auth\AuthController@getRegister');
+Route::post('usuario/registro', 'Auth\AuthController@postRegister');
+Route::get('usuario/logout', 'Auth\AuthController@getLogout');
+Route::post('usuario/login', 'Auth\AuthController@postLogin');
