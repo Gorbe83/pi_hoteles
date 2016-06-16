@@ -3,6 +3,11 @@
 
 @section('content')
 	<!-- banner-bottom -->
+	<div class="explorer">
+		<div class="container">
+			<a href="/hotel/busqueda?ciudad={!! $hotel['ciudad'] !!}&fechaLlegada={!! $datosBusqueda['fechaLlegada'] !!}&fechaIda={!! $datosBusqueda['fechaIda'] !!}&personas={!! $datosBusqueda['personas'] !!}&cuartos={!! $datosBusqueda['cuartos'] !!}"><h6>« Volver</h6></a>
+		</div>
+	</div>
 	<div class="banner-bottom">
 		<!-- container -->
 		<div class="container">
@@ -15,35 +20,33 @@
 								@for ($i = 0; $i < $hotel->estrellas; $i++)
 									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
 								@endfor
-								<p>{!! $hotel->ciudad !!} | Tel. {!! $hotel->telefono !!}</p>
+								<p>{!! $hotel->ciudad->nombre !!} | Tel. {!! $hotel->telefono !!}</p>
 								<p>Ir a: <a href="#galeria">Galería</a>|<a href="#habitaciones">Habitaciones</a>|<a href="#">Informaci&oacute;n del Hotel</a></p>
-							<div id="galeria" class="flexslider" style="padding:0px 10px;">
-								<ul class="slides">
-									<li>
-										<div class="slider-info">
-											<img src="/images/p1.jpg" alt=""/>
-										</div>
-									</li>
-									<li>
-										<div class="slider-info">
-											<img src="/images/p2.jpg" alt=""/>
-										</div>
-									</li>
-									<li>
-										<div class="slider-info">
-											<img src="/images/p3.jpg" alt=""/>
-										</div>
-									</li>
-									<li>
-										<div class="slider-info">
-											<img src="/images/p4.jpg" alt=""/>
-										</div>
-									</li>
-								</ul>
-							</div>
-								<p>jaofijaiofjaoiejfioaofaiofaeoijeoiejiofjeaiofjeaoijfeaoijfaoijfaeoijfeioajfaoeijafoiaejifaejoif
-								eajiofjaeofeanfeaiofoiajfaoia fao faoi jfaoeij foaei foia faoei fauo foa nfaoi faoif aoifaoi feaoijf aoif aiof jaiofj
-								aiofaoi fjea oif aoifa oi fneaiu fiuea feau faeoi nfiean foia feao faoii fao feao afeoij f</p>
+								<div id="galeria" class="flexslider" style="padding:0px 10px;">
+									<ul class="slides">
+										<li>
+											<div class="slider-info">
+												<img src="/images/p1.jpg" alt=""/>
+											</div>
+										</li>
+										<li>
+											<div class="slider-info">
+												<img src="/images/p2.jpg" alt=""/>
+											</div>
+										</li>
+										<li>
+											<div class="slider-info">
+												<img src="/images/p3.jpg" alt=""/>
+											</div>
+										</li>
+										<li>
+											<div class="slider-info">
+												<img src="/images/p4.jpg" alt=""/>
+											</div>
+										</li>
+									</ul>
+								</div>
+								<p>{!! $hotel->detalles !!}</p>
 							</div>
 						</div>
 						<div class="col-md-4 single-gd-rt">
@@ -63,7 +66,7 @@
 									</script>
 								</div>
 								<div class="sp-bor-btn">
-									<h4 style="text-align: center;">MXN $4,850</h4>
+									<h4 style="text-align: center;">MXN ${!! $datosBusqueda['precioMenor'] !!}</h4>
 									<p class="best-pri" style="text-align: center;">Precio por noche</p>
 									<div style="text-align: center;">
 										<a class="best-btn" href="#habitaciones">Ver habitaciones</a>
@@ -71,7 +74,7 @@
 								</div>
 							</div>
 							<div class="map-gd">
-								<iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBvqUJlFKK-APySgavAsCJuE2snjw0Hr50&q={!! $hotel->ciudad !!},{!! $hotel->nombre !!}"></iframe>
+								<iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBvqUJlFKK-APySgavAsCJuE2snjw0Hr50&q={!! $hotel->ciudad->nombre !!},{!! $hotel->nombre !!}"></iframe>
 							</div>
 						</div>
 						<div class="clearfix"></div>
@@ -103,20 +106,20 @@
 										<h6>R&eacute;gimen de comida</h6>
 									</div>
 									<div class="rate-features">
-
+										<div class="book-button-column">
+											<p>{!! $habitacion->regimen_alimenticio->nombre !!}</p>
+										</div>
 									</div>
 								</div>
 								<div class="col-md-3 p-table-grid">
 									<div class="p-table-grad-heading">
-										<h6>Opciones</h6>
+										<h6>Servicios</h6>
 									</div>
 									<div class="rate-features">
 										<ul>
-											<li>Morbi mollis mattis</li>
-											<li>Donec egestas</li>
-											<li>Donec non risus</li>
-											<li>Pellentesque sem</li>
-											<li>Sed ut urna id metus</li>
+											@foreach ($habitacion->servicios as $servicio)
+												<li>{!! $servicio->nombre !!}</li>
+											@endforeach
 										</ul>
 									</div>
 								</div>
@@ -134,7 +137,13 @@
 										<h6><br></h6>
 									</div>
 									<div class="book-button-column">
-										<button type="button" class="btn btn-primary btn-lg" href="/habitacion/reservacion/{!! $habitacion->idHabitacion !!}">Reservar</button>
+										<form method="post" action="/reservacion/habitacion/{!! $habitacion->idHabitacion !!}">
+											{{ csrf_field() }}
+											<input type="hidden" name="fechaLlegada" value="{!! $datosBusqueda['fechaLlegada'] !!}">
+											<input type="hidden" name="fechaIda" value="{!! $datosBusqueda['fechaIda'] !!}">
+											<input type="hidden" name="personas" value="{!! $datosBusqueda['personas'] !!}">
+											<button type="submit" class="btn btn-primary btn-lg">Reservar</button>
+										</form>
 									</div>
 								</div>
 								<div class="clearfix"> </div>

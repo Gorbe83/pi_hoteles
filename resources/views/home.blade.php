@@ -91,10 +91,10 @@
 																		</div>
 																	 </li>
 																	 <li class="span1_of_1 left adult">
-																		 <h5>Adultos (18+)</h5>
+																		 <h5>Personas</h5>
 																		 <!----------start section_room----------->
 																		 <div class="section_room">
-																			  <select id="adultos" name="adultos" onchange="change_adultos(this.value)" class="frm-field required">
+																			  <select id="personas" name="personas" onchange="change_adultos(this.value)" class="frm-field required">
 																					<option value="1">1</option>
 																					<option value="2">2</option>
 																					<option value="3">3</option>
@@ -104,22 +104,7 @@
 																			  </select>
 																		 </div>
 																	</li>
-																	<li class="span1_of_1 left h-child">
-																		 <h5>Ni&ntilde;os (0-17)</h5>
-																		 <!----------start section_room----------->
-																		 <div class="section_room">
-																			  <select id="ninos" name="ninos" onchange="change_ninos(this.value)" class="frm-field required">
-																				  	<option value="0">0</option>
-																					<option value="1">1</option>
-																					<option value="2">2</option>
-																					<option value="3">3</option>
-																					<option value="4">4</option>
-																					<option value="5">5</option>
-																					<option value="6">6</option>
-																			  </select>
-																		 </div>
-																	</li>
-																	<li class="span1_of_1 h-rooms">
+																	<li class="span1_of_1 left h-rooms">
 																		 <h5>Cuartos</h5>
 																		 <!----------start section_room----------->
 																		 <div class="section_room">

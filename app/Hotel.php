@@ -11,4 +11,9 @@ class Hotel extends Model
     public function habitaciones() {
         return $this->hasMany('App\Habitacion', 'idHotel', 'idHotel');
     }
+
+    public function ciudad() {
+        return $this->belongsTo('App\Ciudad', 'idCiudad', 'idCiudad');
+    }
+
 }

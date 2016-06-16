@@ -17,7 +17,7 @@
 									});
 								</script>
 							<div class="online_reservation" style="background-color:green;">
-								<form action="/busqueda" method="GET">
+								<form action="/hotel/busqueda" method="GET">
 									<div class="b_room">
 										<div class="booking_room">
 											<legend style="text-align:center; color:white;">Hoteles</legend>
@@ -49,35 +49,20 @@
 														</div>
 													 </li>
 													 <li class="span1_of_1 left adult">
-														 <h5>Adultos (18+)</h5>
+														 <h5>Personas</h5>
 														 <!----------start section_room----------->
 														 <div class="section_room">
-															  <select id="adultos" name="adultos" onchange="change_adultos(this.value)" class="frm-field required">
-																	<option value="1" @if ($datosBusqueda['adultos'] == '1') selected @endif>1</option>
-																	<option value="2" @if ($datosBusqueda['adultos'] == '2') selected @endif>2</option>
-																	<option value="3" @if ($datosBusqueda['adultos'] == '3') selected @endif>3</option>
-																	<option value="4" @if ($datosBusqueda['adultos'] == '4') selected @endif>4</option>
-																	<option value="5" @if ($datosBusqueda['adultos'] == '5') selected @endif>5</option>
-																	<option value="6" @if ($datosBusqueda['adultos'] == '6') selected @endif>6</option>
+															  <select id="personas" name="personas" onchange="change_adultos(this.value)" class="frm-field required">
+																	<option value="1" @if ($datosBusqueda['personas'] == '1') selected @endif>1</option>
+																	<option value="2" @if ($datosBusqueda['personas'] == '2') selected @endif>2</option>
+																	<option value="3" @if ($datosBusqueda['personas'] == '3') selected @endif>3</option>
+																	<option value="4" @if ($datosBusqueda['personas'] == '4') selected @endif>4</option>
+																	<option value="5" @if ($datosBusqueda['personas'] == '5') selected @endif>5</option>
+																	<option value="6" @if ($datosBusqueda['personas'] == '6') selected @endif>6</option>
 															  </select>
 														 </div>
 													</li>
-													<li class="span1_of_1 left h-child">
-														 <h5>Ni&ntilde;os (0-17)</h5>
-														 <!----------start section_room----------->
-														 <div class="section_room">
-															  <select id="ninos" name="ninos" onchange="change_ninos(this.value)" class="frm-field required">
-																  <option value="0" @if ($datosBusqueda['ninos'] == '0') selected @endif>0</option>
-																  <option value="1" @if ($datosBusqueda['ninos'] == '1') selected @endif>1</option>
-																  <option value="2" @if ($datosBusqueda['ninos'] == '2') selected @endif>2</option>
-																  <option value="3" @if ($datosBusqueda['ninos'] == '3') selected @endif>3</option>
-																  <option value="4" @if ($datosBusqueda['ninos'] == '4') selected @endif>4</option>
-																  <option value="5" @if ($datosBusqueda['ninos'] == '5') selected @endif>5</option>
-																  <option value="6" @if ($datosBusqueda['ninos'] == '6') selected @endif>6</option>
-															  </select>
-														 </div>
-													</li>
-													<li class="span1_of_1 h-rooms">
+													<li class="span1_of_1 left h-rooms">
 														 <h5>Cuartos</h5>
 														 <!----------start section_room----------->
 														 <div class="section_room">
@@ -289,7 +274,7 @@
 
 					<!-- RESULTADOS HOTELES -->
 					<div class="col-md-9 product-right">
-						@if ($hoteles->isEmpty())
+						@if (empty($hoteles))
 							<p>No se encontraron hoteles</p>
 						@else
 							@foreach ($hoteles as $hotel)
@@ -297,12 +282,12 @@
 									<div class="product-right-top">
 										<div class="p-left">
 											<div class="p-right-img">
-												<a href="/hotel/{!! $hotel->idHotel !!}?fechaLlegada={!! $datosBusqueda['fechaLlegada'] !!}&fechaIda={!! $datosBusqueda['fechaIda'] !!}&adultos={!! $datosBusqueda['adultos'] !!}&ninos={!! $datosBusqueda['ninos'] !!}"> </a>
+												<a href="/hotel/{!! $hotel->idHotel !!}?fechaLlegada={!! $datosBusqueda['fechaLlegada'] !!}&fechaIda={!! $datosBusqueda['fechaIda'] !!}&personas={!! $datosBusqueda['personas'] !!}&cuartos={!! $datosBusqueda['cuartos'] !!}&precioMenor={!! $hotel->menorPrecio !!}"> </a>
 											</div>
 										</div>
 										<div class="p-right">
 											<div class="col-md-6 p-right-left">
-												<a href="/hotel/{!! $hotel->idHotel !!}?fechaLlegada={!! $datosBusqueda['fechaLlegada'] !!}&fechaIda={!! $datosBusqueda['fechaIda'] !!}&adultos={!! $datosBusqueda['adultos'] !!}&ninos={!! $datosBusqueda['ninos'] !!}">{!! $hotel->nombre !!}</a>
+												<a href="/hotel/{!! $hotel->idHotel !!}?fechaLlegada={!! $datosBusqueda['fechaLlegada'] !!}&fechaIda={!! $datosBusqueda['fechaIda'] !!}&personas={!! $datosBusqueda['personas'] !!}&cuartos={!! $datosBusqueda['cuartos'] !!}&precioMenor={!! $hotel->menorPrecio !!}">{!! $hotel->nombre !!}</a>
 												<div class="p-right-price">
 													@for ($i = 0; $i < $hotel->estrellas; $i++)
 														<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
@@ -313,7 +298,7 @@
 											</div>
 											<div class="col-md-6 p-right-right">
 												<p>Habitaci&oacute;n por noche</p>
-												<span class="p-offer">$4252</span>
+												<span class="p-offer">${!! $hotel->menorPrecio !!}</span>
 											</div>
 											<div class="clearfix"> </div>
 										</div>

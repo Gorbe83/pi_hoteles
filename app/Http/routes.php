@@ -18,3 +18,11 @@ Route::get('usuario/registro', 'Auth\AuthController@getRegister');
 Route::post('usuario/registro', 'Auth\AuthController@postRegister');
 Route::get('usuario/logout', 'Auth\AuthController@getLogout');
 Route::post('usuario/login', 'Auth\AuthController@postLogin');
+Route::post('reservacion/habitacion/{id}', [
+    'middleware' => 'auth',
+    'uses' => 'ReservationController@reservacion'
+]);
+Route::post('reservacion/confirmar', [
+    'middleware' => 'auth',
+    'uses' => 'ReservationController@confirmar'
+]);

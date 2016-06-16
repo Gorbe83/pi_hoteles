@@ -27,6 +27,13 @@
 								<input type="text" name="apellidos" value="{{ old('apellidos') }}">
 								<p>Tel&eacute;fono</p>
 								<input type="text" name="telefono" value="{{ old('telefono') }}">
+								<p>Fecha de Nacimiento</p>
+								<input type="text" name="fechaNacimiento" value="{{ old('fechaNacimiento') }}">
+								<p>Sexo</p>
+								<select class="form-control" name="sexo">
+									<option value="M">Masculino</option>
+									<option value="F">Femenino</option>
+								</select>
 								<p>Correo electr&oacute;nico</p>
 								<input type="text" name="email" value="{{ old('email') }}">
 								<p>Contrase&ntilde;a</p>
