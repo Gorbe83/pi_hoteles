@@ -1,10 +1,10 @@
 @extends('master')
-@section('title', 'Reservar');
+@section('title', 'Reservar')
 
 @section('content')
     <div class="explorer">
         <div class="container">
-            <a href="/hotel/{!! $hotel->idHotel !!}?fechaLlegada={!! $datos['fechaLlegada'] !!}&fechaIda={!! $datos['fechaIda'] !!}&personas={!! $datos['personas'] !!}"><h6>« Volver</h6></a>
+            <a href="/hotel/{{ $hotel->idHotel }}?fechaLlegada={{ $datos['fechaLlegada'] }}&fechaIda={{ $datos['fechaIda'] }}&personas={{ $datos['personas'] }}"><h6>« Volver</h6></a>
         </div>
     </div>
     <div class="banner-bottom">
@@ -23,11 +23,11 @@
                                 <br>
                                 <div class="form-group">
                                     <label for="nombre">Nombre/s:</label>
-                                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre del titular" value="{!! Auth::user()->nombre !!}" required>
+                                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre del titular" value="{{ Auth::user()->nombre }}" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="apellidos">Apellidos:</label>
-                                    <input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Apellidos del titular" value="{!! Auth::user()->apellidos !!}" required>
+                                    <input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Apellidos del titular" value="{{ Auth::user()->apellidos }}" required>
                                 </div>
                                 <div class="banner-bottom-info" style="padding-bottom: 5px; border-bottom: 1px solid #DDD">
                     				<h4>Informaci&oacute;n de pago</h4>
@@ -112,17 +112,17 @@
                                 <br>
                                 <div class="p-right-right">
                                     <p>Habitaci&oacute;n por noche</p>
-                                    <h5>MXN ${!! $habitacion->precioDia !!}</h5>
+                                    <h5>MXN ${{ number_format($habitacion->precioDia,2) }}</h5>
                                 </div>
                                 <br>
                                 <div class="p-left">
-                                    <p>{!! $datos['noches'] !!} noches</p>
+                                    <p>{{ $datos['noches'] }} noches</p>
                                 </div>
                                 <div class="p-right-right">
-                                    <p>MXN ${!! $habitacion->precioDia !!}</p>
+                                    <p>MXN ${{ number_format($habitacion->precioDia,2) }}</p>
                                 </div>
                                 <div class="p-right-right">
-                                    <h4>Total MXN ${!! $habitacion->precioDia !!}</h4>
+                                    <h4>Total MXN ${{ number_format(($habitacion->precioDia)*($datos['noches']),2) }}</h4>
                                 </div>
                             </div>
                         </div>
@@ -134,11 +134,11 @@
                                 </div>
                                 <br>
                                 <div class="p-right-left">
-                                    <h4>{!! $hotel->nombre !!}</h4>
+                                    <h4>{{ $hotel->nombre }}</h4>
                                     @for ($i = 0; $i < $hotel->estrellas; $i++)
     									<span style="background: #F4F7F9;" class="glyphicon glyphicon-star" aria-hidden="true"></span>
     								@endfor
-                                    <p>{!! $hotel->direccion !!}</p>
+                                    <p>{{ $hotel->direccion }}</p>
                                 </div>
                                 <br>
                                 <div class="p-left">
@@ -148,10 +148,10 @@
                                     <h4>Salida</h4>
                                 </div>
                                 <div class="p-left">
-                                    <h4>{!! date_format(date_create($datos['fechaLlegada']),'d/m/y') !!}</h4>
+                                    <h4>{{ date_format(date_create($datos['fechaLlegada']),'d/m/y') }}</h4>
                                 </div>
                                 <div class="p-right-right">
-                                    <h4>{!! date_format(date_create($datos['fechaIda']),'d/m/y') !!}</h4>
+                                    <h4>{{ date_format(date_create($datos['fechaIda']),'d/m/y') }}</h4>
                                 </div>
                             </div>
                         </div>

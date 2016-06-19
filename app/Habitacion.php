@@ -20,4 +20,8 @@ class Habitacion extends Model
     public function servicios() {
         return $this->belongsToMany('App\Servicio', 'asignacion_servicio', 'idHabitacion', 'idServicio');
     }
+
+    public function reservaciones() {
+        return $this->hasMany('App\Reservacion', 'idHabitacion', 'idHabitacion');
+    }
 }

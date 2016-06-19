@@ -12,4 +12,8 @@ class PagesController extends Controller
         return view ('home');
     }
 
+    public function crud() {
+        return view ('crud.home');
+    }
+
 }

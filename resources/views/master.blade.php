@@ -15,18 +15,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
         <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
         <!-- //Custom Theme files -->
-        <link href="/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+        <link href="/css/bootstrap.min.css" type="text/css" rel="stylesheet" media="all">
         <link href="/css/style.css" type="text/css" rel="stylesheet" media="all">
         <link rel="stylesheet" href="/css/flexslider.css" type="text/css" media="screen" />
         <link type="text/css" rel="stylesheet" href="/css/JFFormStyle-1.css" />
         <!-- js -->
         <script src="/js/jquery.min.js"></script>
         <script src="/js/modernizr.custom.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
         <!-- /js -->
-        <!-- fonts -->
+        <!-- fonts
         <link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,700,500italic,700italic,900,900italic' rel='stylesheet' type='text/css'>
         <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
-        <!-- //fonts -->
+         //fonts -->
         <script type="text/javascript">
         		$(document).ready(function () {
         			$('#horizontalTab').easyResponsiveTabs({

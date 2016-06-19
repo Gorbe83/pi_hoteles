@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use Validator;
+use Mail;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -67,7 +68,7 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'nombre' => $data['nombre'],
             'apellidos' => $data['apellidos'],
             'telefono' => $data['telefono'],
@@ -76,5 +77,17 @@ class AuthController extends Controller
             'fechaNacimiento' => $data['fechaNacimiento'],
             'sexo' => $data['sexo'],
         ]);
+
+        /*Mail::raw('prueba', function($message) use ($user){
+            $message->from(env('CONTACT_MAIL'), env('MAIL_NAME'));
+
+            $message->to($user->email, $user->nombre);
+
+            $message->subject('Registro exitoso');
+
+        });*/
+
+         return $user;
+
     }
 }

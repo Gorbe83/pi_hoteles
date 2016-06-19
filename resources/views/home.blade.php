@@ -6,6 +6,16 @@
 	<div class="banner hotels-banner">
 		<!-- container -->
 		<div class="container">
+			@if ($errors->has('ciudad') || $errors->has('fechaLlegada') || $errors->has('fechaIda') || $errors->has('personas'))
+				@foreach ($errors->all() as $error)
+					<div class="alert alert-danger alert-dismissible fade in" role="alert">
+					  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					    <span aria-hidden="true">&times;</span>
+					  </button>
+					  {{ $error }}
+					</div>
+	            @endforeach
+			@endif
 			<div class="col-md-4 banner-left">
 				<section class="slider2">
 					<div class="flexslider">
@@ -101,20 +111,7 @@
 																					<option value="4">4</option>
 																					<option value="5">5</option>
 																					<option value="6">6</option>
-																			  </select>
-																		 </div>
-																	</li>
-																	<li class="span1_of_1 left h-rooms">
-																		 <h5>Cuartos</h5>
-																		 <!----------start section_room----------->
-																		 <div class="section_room">
-																			  <select id="cuartos" name="cuartos" onchange="change_cuartos(this.value)" class="frm-field required">
-																					<option value="1">1</option>
-																					<option value="2">2</option>
-																					<option value="3">3</option>
-																					<option value="4">4</option>
-																					<option value="5">5</option>
-																					<option value="6">6</option>
+																					<option value="7">7</option>
 																			  </select>
 																		 </div>
 																	</li>

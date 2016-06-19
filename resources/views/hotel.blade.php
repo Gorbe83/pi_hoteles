@@ -1,11 +1,11 @@
 @extends('master')
-@section('title', 'Hoteles');
+@section('title', 'Hoteles')
 
 @section('content')
 	<!-- banner-bottom -->
 	<div class="explorer">
 		<div class="container">
-			<a href="/hotel/busqueda?ciudad={!! $hotel['ciudad'] !!}&fechaLlegada={!! $datosBusqueda['fechaLlegada'] !!}&fechaIda={!! $datosBusqueda['fechaIda'] !!}&personas={!! $datosBusqueda['personas'] !!}&cuartos={!! $datosBusqueda['cuartos'] !!}"><h6>« Volver</h6></a>
+			<a href="/hotel/busqueda?ciudad={{ $hotel->ciudad->nombre }}&fechaLlegada={{ $datosBusqueda['fechaLlegada'] }}&fechaIda={{ $datosBusqueda['fechaIda'] }}&personas={{ $datosBusqueda['personas'] }}"><h6>« Volver</h6></a>
 		</div>
 	</div>
 	<div class="banner-bottom">
@@ -16,11 +16,11 @@
 				<div class="single-page">
 						<div class="col-md-8 single-gd-lt">
 							<div class="single-pg-hdr">
-								<h2>{!! $hotel->nombre !!}</h2>
+								<h2>{{ $hotel->nombre }}</h2>
 								@for ($i = 0; $i < $hotel->estrellas; $i++)
 									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
 								@endfor
-								<p>{!! $hotel->ciudad->nombre !!} | Tel. {!! $hotel->telefono !!}</p>
+								<p>{{ $hotel->ciudad->nombre }} | Tel. {{ $hotel->telefono }}</p>
 								<p>Ir a: <a href="#galeria">Galería</a>|<a href="#habitaciones">Habitaciones</a>|<a href="#">Informaci&oacute;n del Hotel</a></p>
 								<div id="galeria" class="flexslider" style="padding:0px 10px;">
 									<ul class="slides">
@@ -46,7 +46,7 @@
 										</li>
 									</ul>
 								</div>
-								<p>{!! $hotel->detalles !!}</p>
+								<p>{{ $hotel->detalles }}</p>
 							</div>
 						</div>
 						<div class="col-md-4 single-gd-rt">
@@ -66,7 +66,7 @@
 									</script>
 								</div>
 								<div class="sp-bor-btn">
-									<h4 style="text-align: center;">MXN ${!! $datosBusqueda['precioMenor'] !!}</h4>
+									<h4 style="text-align: center;">MXN ${{ $datosBusqueda['precioMenor'] }}</h4>
 									<p class="best-pri" style="text-align: center;">Precio por noche</p>
 									<div style="text-align: center;">
 										<a class="best-btn" href="#habitaciones">Ver habitaciones</a>
@@ -74,7 +74,7 @@
 								</div>
 							</div>
 							<div class="map-gd">
-								<iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBvqUJlFKK-APySgavAsCJuE2snjw0Hr50&q={!! $hotel->ciudad->nombre !!},{!! $hotel->nombre !!}"></iframe>
+								<iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBvqUJlFKK-APySgavAsCJuE2snjw0Hr50&q={{ $hotel->ciudad->nombre }},{{ $hotel->nombre }}"></iframe>
 							</div>
 						</div>
 						<div class="clearfix"></div>
@@ -95,7 +95,7 @@
 									<div class="p-table-grid-info">
 										<a href="#"><img src="/images/p2.jpg" alt=""></a>
 										<div class="room-basic-info">
-											<h5>{!! $habitacion->nombre !!}</h5>
+											<h5>{{ $habitacion->nombre }}</h5>
 											<h6>1 king bed or  2 single beds</h6>
 											<p>Vestibulum ullamcorper(condimentum luctus)</p>
 										</div>
@@ -107,7 +107,7 @@
 									</div>
 									<div class="rate-features">
 										<div class="book-button-column">
-											<p>{!! $habitacion->regimen_alimenticio->nombre !!}</p>
+											<p>{{ $habitacion->regimen_alimenticio->nombre }}</p>
 										</div>
 									</div>
 								</div>
@@ -118,7 +118,7 @@
 									<div class="rate-features">
 										<ul>
 											@foreach ($habitacion->servicios as $servicio)
-												<li>{!! $servicio->nombre !!}</li>
+												<li>{{ $servicio->nombre }}</li>
 											@endforeach
 										</ul>
 									</div>
@@ -129,7 +129,7 @@
 									</div>
 									<div class="avg-rate">
 										<h5>El precio actual es: </h5>
-										<span class="p-offer">${!! $habitacion->precioDia !!}</span>
+										<span class="p-offer">${{ $habitacion->precioDia }}</span>
 									</div>
 								</div>
 								<div class="col-md-2 p-table-grid">
@@ -137,11 +137,11 @@
 										<h6><br></h6>
 									</div>
 									<div class="book-button-column">
-										<form method="post" action="/reservacion/habitacion/{!! $habitacion->idHabitacion !!}">
+										<form method="post" action="/hotel/{{ $habitacion->hotel->idHotel }}/habitacion/{{ $habitacion->idHabitacion }}/reservacion">
 											{{ csrf_field() }}
-											<input type="hidden" name="fechaLlegada" value="{!! $datosBusqueda['fechaLlegada'] !!}">
-											<input type="hidden" name="fechaIda" value="{!! $datosBusqueda['fechaIda'] !!}">
-											<input type="hidden" name="personas" value="{!! $datosBusqueda['personas'] !!}">
+											<input type="hidden" name="fechaLlegada" value="{{ $datosBusqueda['fechaLlegada'] }}">
+											<input type="hidden" name="fechaIda" value="{{ $datosBusqueda['fechaIda'] }}">
+											<input type="hidden" name="personas" value="{{ $datosBusqueda['personas'] }}">
 											<button type="submit" class="btn btn-primary btn-lg">Reservar</button>
 										</form>
 									</div>

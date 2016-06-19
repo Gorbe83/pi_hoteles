@@ -3,7 +3,7 @@
     <div class="container">
         <div class="header-grids">
             <div class="logo">
-                <h1><a  href="/"><span>Hoteles</span>Facilitos</a></h1>
+                <a  href="/"><img src="/images/logo_prueba.jpg"></a>
             </div>
 
         <div class="nav-top">
@@ -18,6 +18,7 @@
                                         <fieldset id="body">
                                             <fieldset>
                                                 <h4>Hola de nuevo</h4>
+                                                <a href="/usuario/reservaciones/mostrar">Mis reservaciones</a>
                                                 <a href="/usuario/logout">Cerrar sesi&oacute;n</a>
                                             </fieldset>
                                         </fieldset>
@@ -35,9 +36,11 @@
                                 <div class="login-grids">
                                     <div class="login-grid-left">
                                         <fieldset id="body">
-                                            @foreach ($errors->all() as $error)
-            								   <p class="alert">{{ $error }}</p>
-            							   	@endforeach
+                                            @if ($errors->has('email') || $errors->has('password'))
+                                                @foreach ($errors->all() as $error)
+                								   <p class="alert">{{ $error }}</p>
+                							   	@endforeach
+                                            @endif
                                             <fieldset>
                                                 <label for="email">Correo electr&oacute;nico</label>
                                                 <input type="text" name="email" id="email">
@@ -49,19 +52,19 @@
                                             <input type="submit" id="login" value="Iniciar sesi&oacute;n">
                                             <label for="checkbox"><input type="checkbox" id="checkbox" name="remember"> <i>Recordar</i></label>
                                         </fieldset>
-                                        <span><a href="#">Forgot your password?</a></span>
+                                        <span><a href="#">¿Olvidaste tu contrase&ntilde;a?</a></span>
                                         <div class="or-grid">
-                                            <p>OR</p>
+                                            <p>O</p>
                                         </div>
                                         <div class="social-sits">
                                             <div class="facebook-button">
-                                                <a href="#">Connect with Facebook</a>
+                                                <a href="#">Conectate con Facebook</a>
                                             </div>
                                             <div class="chrome-button">
-                                                <a href="#">Connect with Google</a>
+                                                <a href="#">Conectate con Google</a>
                                             </div>
                                             <div class="button-bottom">
-                                                <p>New account? <a href="/usuario/registro">Signup</a></p>
+                                                <p>¿No tienes una cuenta? <a href="/usuario/registro">Registrate</a></p>
                                             </div>
                                         </div>
                                     </div>

@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 body{
 	margin:0;
 	font-family: 'Open Sans', sans-serif;
-	background-color:#fff;
+	background-color: #F2EEE8;
 }
 body a{
 	transition: 0.5s all ease;
@@ -32,7 +32,7 @@ body a:hover{
 }
 /*--header--*/
 .header {
-    padding: 1em 0 0 0;
+    padding: 0 0 0 0;
     position: relative;
 }
 nav.navbar.navbar-default {
@@ -46,6 +46,10 @@ nav.navbar.navbar-default {
 .logo {
     float: left;
 }
+.logo img {
+
+}
+
 .logo h1{
 	margin:0;
 }
@@ -61,7 +65,7 @@ nav.navbar.navbar-default {
 }
 /*-- top-nav --*/
 .nav-top{
-    margin: 2em 0 0 0;
+    margin: 0 0 0 0;
 }
 .top-nav{
     margin: 0 auto 0 0;
@@ -99,15 +103,16 @@ nav.navbar.navbar-default {
     width: 38%;
 }
 .dropdown-grids {
+	margin-top: 4.3em;
     float: right;
-    border-bottom: solid 2px #6fd508;
+    border-bottom: solid 2px #339933;
 }
 /*--Login --*/
 #loginContainer {
     position: relative;
     padding: 0.5em 0em;
-    border: solid 1px #6fd508;
-    background: #6fd508;
+    border: solid 1px #339933;
+    background: #339933;
 }
 #loginContainer a span{
     padding: .5em 2em;
@@ -2025,7 +2030,7 @@ border:1px solid #d5d5d5;
 }
 .spl-btn-bor {
     padding: 8px 20px;
-    background: #6fd508;
+    background: #d85537;
 }
 .spl-btn-bor span{
 margin-right: 10px;
@@ -2052,7 +2057,7 @@ top:0;
 }
  a.best-btn {
   text-decoration: none;
-  background: #464646;
+  background: #339933;
   color: #fff;
   font-size: 18px;
   padding: 6px 16px;
